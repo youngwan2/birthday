@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>생일축하</title>
+  </head>
+  <style>
+    @import url("//fonts.googleapis.com/earlyaccess/nanumpenscript.css");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      width: 100%;
+      height: 100vh;
+      background: #1f306b;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card-wrapper {
+      background: #f6ca50;
+      border-radius: 5px;
+      perspective: 600px;
+      perspective-origin: center center;
+      box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.5), inset 0 0 0 10px #f6ca50;
+      width: 100%;
+      height: 80vh;
+      overflow: hidden;
+      scale: 1.05;
+    }
+
+    .card {
+      
+      transform-origin: 50% 100%;
+      transition: 1s;
+      aspect-ratio: 1/1;
+      width: 100%;
+      height: 100%;
+      max-width: 600px;
+      max-height: 500px;
+      position: absolute;
+      left: 50%;
+      top: 45%;
+      transform: translate(-50%, -50%);
+      background: white;
+    }
+    .card-back {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: "Nanum Pen Script", sans-serif;
+      transform-origin: 50% 0%;
+      .text {
+        font-size: 1.25rem;
+      }
+    }
+    .card-back::before {
+      content: '';
+      position: absolute;
+      border-top: 20px solid  #f6ca50;
+      border-left: 20px solid  #f6ca50;
+      border-right: 20px solid rgb(225, 184, 80);
+      border-bottom: 20px solid rgb(225, 184, 80);
+      left: -0.1rem;
+      top: -0.1rem;
+    }
+
+    .card-front {
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(-150deg, rgba(255, 255, 255,1) 60%, rgb(233, 231, 231));
+      font-family: "Nanum Pen Script", sans-serif;
+      display: flex;
+      align-items: center;
+      padding-top: 5%;
+      flex-direction: column;
+
+      .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .title {
+        text-align: center;
+      }
+
+      i {
+        margin-top: 3rem;
+        font-size: 1.25rem;
+        animation: updown 1s infinite alternate linear;
+      }
+      button {
+        border: none;
+        text-decoration: 2px wavy solid;
+        background: none;
+        margin-top: 4rem;
+        cursor: pointer;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        box-shadow: inset -2px -2px 1px gray;
+        background-color: rgb(38, 38, 38);
+        font-size: 1.15em;
+        transition: 0.5s;
+      }
+      button:hover {
+        background-color: rgb(80, 79, 79);
+      }
+    }
+
+    .content {
+      width: 100%;
+
+      font-size: 34px;
+    }
+
+    @keyframes updown {
+      0% {
+        transform: translateY(-5px);
+      }
+    }
+  </style>
+  <body>
+    <div class="card-wrapper">
+      <div class="card card-back">
+        <p class="text"></p>
+      </div>
+      <div class="card card-front">
+        <div class="content">
+          <p class="title">
+            🎉 행복한 생일 됩쇼 🎉<br />
+          </p>
+          <i><ion-icon name="arrow-down-outline"></ion-icon></i>
+          <button></button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
